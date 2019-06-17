@@ -16,6 +16,8 @@ $ npm i -g messenger-media-downloader
 $ messenger-media-downloader
 ```
 
+Or just clone the repository and run `./run.sh`.
+
 ## Privacy
 
 I don't care about your personal data, and nothing is stolen from you: your login informations, media, or anything.
@@ -24,5 +26,4 @@ I don't care about your personal data, and nothing is stolen from you: your logi
 
 - download all media
 - try to do parallel download with multiple tabs?
-
 - add options to choose date range (if possible)

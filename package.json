@@ -1,24 +1,22 @@
 {
-  "name": "messenger-media-saver",
-  "description": "Save all media from a Messenger conversation from the command line.",
-  "version": "1.0.0",
+  "name": "messenger-media-downloader",
+  "description": "Download all media from a Messenger conversation from the command line.",
+  "version": "0.1.0",
   "bin": {
-    "messenger-media-saver": "./run.sh"
+    "messenger-media-downloader": "./run.sh"
   },
   "keywords": [
     "cli",
     "puppeteer",
-    "messenger"
+    "messenger",
+    "download"
   ],
   "author": "Romain Berger <romain@romainberger.com",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/romainberger/messenger-media-saver.git"
-  },
+  "repository": "romainberger/messenger-media-downloader",
   "bugs": {
-    "url": "https://github.com/romainberger/messenger-media-saver/issues"
+    "url": "https://github.com/romainberger/messenger-media-downloader/issues"
   },
-  "homepage": "https://github.com/romainberger/messenger-media-saver#readme",
+  "homepage": "https://github.com/romainberger/messenger-media-downloader#readme",
   "license": "MIT",
   "dependencies": {
     "mkdirp": "0.5.1",
