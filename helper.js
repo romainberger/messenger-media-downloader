@@ -10,7 +10,7 @@ const helper = {
     getNewPage(url, downloadPath = DEFAULT_DOWNLOAD_FOLDER) {
         return new Promise(async resolve => {
             const browser = await puppeteer.launch({
-                headless: false,
+                // headless: false,
                 defaultViewport: {
                     width: 1000,
                     height: 500,

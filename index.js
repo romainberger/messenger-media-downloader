@@ -68,7 +68,7 @@ const downloadMedias = page => {
             await page.keyboard.press('Escape')
 
             await helper.waitFor(200)
-            cli.overwrite(`Downloaded ${i}/${photos.length}`)
+            cli.overwrite(`Downloaded ${i + 1}/${photos.length}`)
 
             photos = await page.$$(SELECTORS.photos)
 
@@ -86,6 +86,15 @@ const downloadMedias = page => {
     const email = process.argv[2]
     const password = process.argv[3]
     const conversationUrl = process.argv[4]
+
+    // check that the url is valid
+    try {
+        new URL(conversationUrl)
+    }
+    catch(e) {
+        console.log('Error: Invalid url')
+        process.exit()
+    }
 
     cli.loading('Signin into Messenger...')
     const downloadFolder = helper.getDownloadFolder(conversationUrl)
