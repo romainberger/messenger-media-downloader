@@ -10,9 +10,13 @@ const cli = {
         console.log('   ', ...args)
     },
 
-    done() {
-        cli.overwrite('✔︎ ', ...currentArgs)
+    doneLoading() {
+        cli.done(...currentArgs)
     },
+
+    done(...args) {
+        cli.overwrite('✔︎ ', ...args)
+    }
 }
 
 module.exports = cli

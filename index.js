@@ -47,8 +47,9 @@ const downloadMedias = page => {
         const infiniteLoader = new InfiniteLoader(page, SELECTORS.photoSidebar)
 
         let photos = await page.$$(SELECTORS.photos)
+        let i = 0
 
-        for (let i = 0; i < photos.length; i++) {
+        for (; i < photos.length; i++) {
             if (!photos[i]) {
                 continue
             }
@@ -78,7 +79,7 @@ const downloadMedias = page => {
             }
         }
 
-        resolve()
+        resolve(i + 1)
     })
 }
 
@@ -99,18 +100,20 @@ const downloadMedias = page => {
     cli.loading('Signin into Messenger...')
     const downloadFolder = helper.getDownloadFolder(conversationUrl)
     const { browser, page } = await helper.getNewPage(conversationUrl, downloadFolder)
-    cli.done()
+    cli.doneLoading()
 
     await login(page, email, password)
 
     cli.loading('Opening conversation...')
     await page.waitForSelector(SELECTORS.conversationsList)
-    cli.done()
+    cli.doneLoading()
 
     // wait for photos to be loaded
     await page.waitForSelector(SELECTORS.photos)
 
-    await downloadMedias(page)
+    const totalMediaDownloaded = await downloadMedias(page)
+
+    cli.done(`Downloaded ${totalMediaDownloaded} medias`)
 
     browser.close()
 })()
