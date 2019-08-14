@@ -111,9 +111,11 @@ const downloadMedias = page => {
     // wait for photos to be loaded
     await page.waitForSelector(SELECTORS.photos)
 
+    const startTime = +new Date()
     const totalMediaDownloaded = await downloadMedias(page)
+    const endTime = +new Date()
 
-    cli.done(`Downloaded ${totalMediaDownloaded} medias`)
+    cli.done(`Downloaded ${totalMediaDownloaded} medias in ${endTime - startTime / 1000}s`)
 
     browser.close()
 })()
